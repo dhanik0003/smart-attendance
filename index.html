@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Attendance Dashboard</h2>
+  <form onsubmit="submitForm(event)">
+    <label>Program:</label>
+    <select id="program">
+      <option>BE-CSE</option>
+      <option>BE-AIML</option>
+      <option>BE-CSBS</option>
+      <option>BE-Civil</option>
+      <option>BE-Mech</option>
+    </select>
+
+    <label>Semester:</label>
+    <select id="semester">
+      <option>1</option><option>2</option><option>3</option><option>4</option>
+      <option>5</option><option>6</option><option>7</option><option>8</option>
+    </select>
+
+    <label>Subject:</label>
+    <select id="subject">
+      <option>Maths</option><option>Physics</option><option>Chemistry</option>
+      <option>CAED</option><option>C programming</option><option>Operating system</option>
+      <option>DBMS</option><option>SFH</option><option>IDT</option><option>YOGA</option>
+    </select>
+
+    <label>Class:</label>
+    <input type="text" id="class" required />
+
+    <button type="submit">Start Attendance</button>
+  </form>
+
+  <script>
+    function submitForm(e) {
+      e.preventDefault();
+      localStorage.setItem("program", document.getElementById("program").value);
+      localStorage.setItem("semester", document.getElementById("semester").value);
+      localStorage.setItem("subject", document.getElementById("subject").value);
+      localStorage.setItem("class", document.getElementById("class").value);
+      localStorage.setItem("roll", document.getElementById("roll").value);
+      window.location.href = "camera.html";
+    }
+  </script>
+</body>
+</html>
